@@ -1,0 +1,9 @@
+royxat = ['ozod','jasur','ahli']
+yigindi = royxat
+for son in range(yigindi):
+yigindi = yigindi + son
+print(yigindi)
+
+
+
+
