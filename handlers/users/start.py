@@ -1,9 +1,10 @@
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 
+from keyboards.inline.til1 import inline_menu
 from loader import dp
 
 
-@dp.message_handler(CommandStart())
+@dp.message_handler(commands='start')
 async def bot_start(message: types.Message):
-    await message.answer(f"Salom, {message.from_user.full_name}! bu bot orqali o'zingiz yashaydigon hududagi ob-hava malumotini olishingiz mukun\nBotni ishlatish uchun /help buyrug'ini kiriting")
+    await message.answer(text='Tilni tanlang👇',reply_markup=inline_menu)

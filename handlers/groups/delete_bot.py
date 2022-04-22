@@ -38,6 +38,10 @@ async def bot_echo(message: types.Message):
 async def bot_echo(message: types.Message):
     await message.delete()
 
+@dp.message_handler(Guruh(),content_types=ContentType.UNKNOWN)
+async def bot_echo(message: types.Message):
+    await message.delete()
+
 
 
 

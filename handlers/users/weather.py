@@ -4,24 +4,28 @@ import datetime
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
-
-
-@dp.callback_query_handler(text='uzb🇺🇿')
-async def bot_start(message: types.Message):
-    await message.answer(f"Salom {message.from_user.first_name} Menga shahar nomini yuboring, men sizga ob-havo hisobotini yuboraman!")
-
 open_weather_token='d539db765863110016b27d8e1998f082'
+
+
+
+
+
+
+@dp.callback_query_handler(text='eng🇺🇸')
+async def bot_start(message: types.Message):
+    await message.answer(f"Hello {message.from_user.first_name} Send me the name of the city and I will send you a weather report!")
+
 
 @dp.message_handler()
 async def get_weather(message: types.Message):
     code_to_smile = {
-        "Clear": "Yorug'lik \U00002600",
-        "Clouds": "bulutli \U00002601",
-        "Rain": " Yomg'ir\U00002614",
-        "Drizzle": "Yomg'ir \U00002614",
-        "Thunderstorm": "Momaqaldiroq \U000026A1",
-        "Snow": "Qor \U0001F328",
-        "Mist": "Tuman \U0001F32B"
+        "Clear": "Lighting \U00002600",
+        "Clouds": "cloudy \U00002601",
+        "Rain": " Rain\U00002614",
+        "Drizzle": "Drizzle \U00002614",
+        "Thunderstorm": "Thunder \U000026A1",
+        "Snow": "Snow \U0001F328",
+        "Mist": "Mist \U0001F32B"
     }
 
     try:
@@ -37,7 +41,7 @@ async def get_weather(message: types.Message):
         if weather_description in code_to_smile:
             wd = code_to_smile[weather_description]
         else:
-            wd = "Посмотри в окно, не пойму что там за погода!"
+            wd = "Look in the window, do not see what is there for the weather!"
 
         humidity = data["main"]["humidity"]
         pressure = data["main"]["pressure"]
@@ -48,14 +52,14 @@ async def get_weather(message: types.Message):
             data["sys"]["sunrise"])
 
         await message.reply(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}***\n"
-              f"Shahar ob-havosi: {city}\nHarorat: {cur_weather}C° {wd}\n"
-              f"Namlik: {humidity}%\nBosim: {pressure} мм.рт.ст\nShamol: {wind} м/с\n"
-              f"Quyosh chiqishi: {sunrise_timestamp}\nQuyosh botishi: {sunset_timestamp}\nKun uzunligi: {length_of_the_day}\n"
-              f"***Yaxshi kun!***"
+              f"City weather: {city}\nTemperature: {cur_weather}C° {wd}\n"
+              f"Humidity: {humidity}%\nPressure: {pressure} мм.рт.ст\nThe wind: {wind} м/с\n"
+              f"Sunrise: {sunrise_timestamp}\nSunset: {sunset_timestamp}\nLength of day: {length_of_the_day}\n"
+              f"***Good day!***"
               )
 
     except:
-        await message.reply("\U00002620 Shahar nomini tekshiring \U00002620")
+        await message.reply("\U00002620 Check the city name \U00002620")
 
 
 

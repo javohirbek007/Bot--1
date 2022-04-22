@@ -1,1 +1,1 @@
-from . import tasdiqlash
+from . import til
