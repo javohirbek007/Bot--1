@@ -16,3 +16,19 @@ asosiy_tasdiqlash =ReplyKeyboardMarkup(
     resize_keyboard=True
 
 )
+
+
+
+
+tasdiq = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='Tasdiqlash'),
+            KeyboardButton(text='Bekorqilish'),
+
+        ]
+
+    ],
+    resize_keyboard=True
+
+)

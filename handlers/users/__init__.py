@@ -1,7 +1,10 @@
+from. import start
 from . import help
-from . import start
+from . import pagoda
+from . import  snov2
 from . import forma
-# from . import wiki
 from . import weather
-from . import ob_havo
+from . import SNOV
+from . import asosiy
+
 from . import echo
